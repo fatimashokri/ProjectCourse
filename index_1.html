@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>view</title>
+<link rel="stylesheet" type="text/css" href="style1.css">
+<!--<script type="text/javascript"   src= "Myjs.js"></script> -->
+</head>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<body>
+<div id="container1">
+     <div id="first" >Text A </div>
+     <div id="second">Text B</div>
+     <div id="third">Text C</div>
+     <div id="animating"><img src="flower2.jpg" width="100" height="100" alt="" /><br> Photo 2</div>
+</div> 
+    
+<div id="forth">Text D</div>
+<div id="drop_box1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="drop_box2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="draging"><img id="drag1" src="flower.jpg" draggable="true" ondragstart="drag(event)" width="100" height="100"><br> Photo to Drag </div>
+</body>
+</html>
